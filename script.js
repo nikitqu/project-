@@ -60,7 +60,7 @@
 // console.log(obj.Jenny);
 
 
-const numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?', '');
+const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
 const personMovieDB = {
     count: numberOfFilms,
@@ -70,9 +70,15 @@ const personMovieDB = {
     private: false
 };
 
-const a = prompt('Один из последних просотренных фильмов?', '');
-const b = prompt('На сколько оцените его', '');
+const a = prompt('Один из последних просмотренных фильмов?', ''),
+      b = prompt('На сколько оцените его', ''),   
+      c = prompt('Один из последних просмотренных фильмов?', ''),
+      d = prompt('На сколько оцените его', '');
 
+      personMovieDB.movie[a] = b;
+      personMovieDB.movie[c] = d;
+
+     console.log(personMovieDB); 
 
 
 
