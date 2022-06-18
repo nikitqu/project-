@@ -183,44 +183,6 @@
 //         arr[0] = i;
 //     }
 
-// -------------------------------24. Практика, ч2. Применяем условия и циклы
-
-// const numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?', '');
-
-// const personMovieDB = {
-//     count: numberOfFilms,
-//     movie: {},
-//     actors: {},
-//     genres: [],
-//     private: false
-// };
-
-
-// for (let i = 0; i < 2; i++) {
-
-//     const a = prompt('Один из последних просмотренных фильмов?', ''),
-//         b = prompt('На сколько оцените его', '');
-
-//     if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-//         personMovieDB.movie[a] = b;
-//         console.log('Done!');
-//     } else {
-//         console.log('Error');
-//         i--;
-//     }
-// }
-
-// if (personMovieDB.count < 10) {
-//     console.log('Просмотрено мало фильмов');
-// } else if (personMovieDB.count >= 10 && personMovieDB.count < 30) {
-//     console.log('Вы классический зритель');
-// } else if (personMovieDB.count >= 30) {
-//     console.log('Вы киноман');
-// } else {
-//     console.log('Произошла ошибка');
-// }
-// console.log(personMovieDB);
-
 
 // ---------------------25. Функции, стрелочные ф-ции (ES6)--------------
 // действия в JS
@@ -290,21 +252,84 @@
 // test();
 
 
-function sayHello(name){
-   return `Привет, ${name}`;
+// function sayHello(name){
+//    return `Привет, ${name}`;
+// }
+
+// sayHello('Никита');
+
+// function returnNeigboringNumbers(num){
+//    return [--num, num, ++num];
+// }
+
+// returnNeigboringNumbers(2);
+
+// --------------------------------------------ПРАКТИКА
+
+let numberOfFilms;
+
+function start(){
+   numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?', '');
+
+   while(numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)){
+      numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?', '');
+   }
+}
+start();
+
+const personMovieDB = {
+    count: numberOfFilms,
+    movie: {},
+    actors: {},
+    genres: [],
+    private: false
+};
+
+function rememberMyFilms(){
+   for (let i = 0; i < 2; i++) {
+
+      const a = prompt('Один из последних просмотренных фильмов?', ''),
+          b = prompt('На сколько оцените его', '');
+  
+      if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+          personMovieDB.movie[a] = b;
+          console.log('Done!');
+      } else {
+          console.log('Error');
+          i--;
+      }
+  }
+}
+rememberMyFilms();
+
+function detectPersonalLevel(){
+   if (personMovieDB.count < 10) {
+      console.log('Просмотрено мало фильмов');
+  } else if (personMovieDB.count >= 10 && personMovieDB.count < 30) {
+      console.log('Вы классический зритель');
+  } else if (personMovieDB.count >= 30) {
+      console.log('Вы киноман');
+  } else {
+      console.log('Произошла ошибка');
+  }
+  
 }
 
-sayHello('Никита');
+detectPersonalLevel();
 
 
-function returnNeigboringNumbers(num){
-   return [--num, num, ++num];
+function showMyDB(hidden){
+   if(!hidden){
+      console.log(personMovieDB);
+   }else{
+
+   }
 }
+ showMyDB(personMovieDB.private);
 
-returnNeigboringNumbers(2);
-
-
-
-
-
-
+function writeYourGenres(){
+   for(let i = 1; i<=3;i++){
+     personMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под ${i}`);
+   }
+}
+writeYourGenres();
