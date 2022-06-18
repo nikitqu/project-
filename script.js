@@ -18,7 +18,7 @@
 // console.log(und); // undefined - пусто
 
 // объект -коллекция данных 
- 
+
 // const obj = {
 //     name: "John",
 //     age: 25,
@@ -155,7 +155,7 @@
 //     for(let j = 0; j < i; j++){
 //         result += '*';
 //     }
-    
+
 //     result += '\n'; //перенос на след. строку
 // }
 
@@ -185,51 +185,123 @@
 
 // -------------------------------24. Практика, ч2. Применяем условия и циклы
 
-const numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?', '');
+// const numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?', '');
 
-const personMovieDB = {
-    count: numberOfFilms,
-    movie: {},
-    actors: {},
-    genres: [],
-    private: false
-};
+// const personMovieDB = {
+//     count: numberOfFilms,
+//     movie: {},
+//     actors: {},
+//     genres: [],
+//     private: false
+// };
 
 
-for(let i = 0; i<2; i++){
+// for (let i = 0; i < 2; i++) {
 
-    const a = prompt('Один из последних просмотренных фильмов?', ''),
-    b = prompt('На сколько оцените его', '');
+//     const a = prompt('Один из последних просмотренных фильмов?', ''),
+//         b = prompt('На сколько оцените его', '');
 
-    if(a != null && b != null && a != '' && b != '' && a.length < 50){
-        personMovieDB.movie[a] = b;
-        console.log('Done!');
-    } else {
-        console.log('Error');
-        i--;
+//     if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+//         personMovieDB.movie[a] = b;
+//         console.log('Done!');
+//     } else {
+//         console.log('Error');
+//         i--;
+//     }
+// }
 
-    }
+// if (personMovieDB.count < 10) {
+//     console.log('Просмотрено мало фильмов');
+// } else if (personMovieDB.count >= 10 && personMovieDB.count < 30) {
+//     console.log('Вы классический зритель');
+// } else if (personMovieDB.count >= 30) {
+//     console.log('Вы киноман');
+// } else {
+//     console.log('Произошла ошибка');
+// }
+// console.log(personMovieDB);
 
+
+// ---------------------25. Функции, стрелочные ф-ции (ES6)--------------
+// действия в JS
+
+// function имя(параметры) {
+//     ...тело...
+//   }
+
+// let num = 10; // глобальная переменная, видна в функции и вне
+
+// function showFirstMessage(text){
+//     console.log(text);
+//     let num = 20;  // переменная созданная в функции, видна только в функции
+//     console.log(num); // 20
+// }
+// showFirstMessage('HELLO WORLD');
+
+// console.log(num); //10
+// ----
+// function calc(a,b){
+//     return a+b;
+// }
+// console.log(calc(5, 8));
+// ------
+// function ret(){
+//     let num = 50;
+
+//     return num;
+// }
+// const anotherNum = ret();
+// console.log(anotherNum);
+
+// ------ стрелочная функция
+
+// const calc = (a, b)=>{
+//  return a + b;
+ 
+// };
+
+// console.log(calc(4,6));
+
+// -------------конвертер
+// const usdCurr = 2.6;
+// const eurCurr = 2.8;
+// const discount = 0.9;
+
+// function convert(amount, curr){
+//     console.log(curr * amount);
+// }
+
+// function promotion (result){
+//     console.log( result * discount);
+// }
+// promotion(convert(100, usdCurr));
+
+
+// return останавливает функцию
+
+// function test(){
+//     for(let i = 0; i < 5; i++){
+//         console.log(i);
+//         if(i === 3) return;      // на этом этапе функция остановится
+//     }
+//     console.log("Done");
+// }
+
+// test();
+
+
+function sayHello(name){
+   return `Привет, ${name}`;
 }
 
-if (personMovieDB.count <10){
-    console.log('Просмотрено мало фильмов');
-} else if (personMovieDB.count >= 10 && personMovieDB.count < 30){
-    console.log('Вы классический зритель');
-}else if(personMovieDB.count >= 30){
-    console.log('Вы киноман');
-} else{
-    console.log('Произошла ошибка');
+sayHello('Никита');
+
+
+function returnNeigboringNumbers(num){
+   return [--num, num, ++num];
 }
 
-     console.log(personMovieDB); 
-
-
-
-
-
-
-
+returnNeigboringNumbers(2);
 
 
 
